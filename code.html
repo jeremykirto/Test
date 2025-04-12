@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計時器</title>
+    <style>
+        /* 可選：讓文字置中並放大 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 至少和視窗一樣高 */
+            font-size: 2rem; /* 放大字體 */
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- 這個 div 用來顯示秒數 -->
+    <div id="timerDisplay">開始計時...</div>
+
+    <script>
+        let seconds = 0; // 初始化秒數為 0
+        const timerElement = document.getElementById('timerDisplay'); // 找到要顯示秒數的 div 元素
+
+        // 定義一個函數來更新計時器顯示
+        function updateTimer() {
+            seconds++; // 將秒數加 1
+            timerElement.textContent = seconds + " 秒"; // 更新 div 內的文字
+        }
+
+        // 頁面載入後，每隔 1000 毫秒 (也就是 1 秒) 就執行一次 updateTimer 函數
+        setInterval(updateTimer, 1000);
+
+        // 可選：如果你希望一載入就顯示 "1 秒" 而不是等一秒後才顯示，
+        // 可以取消下面這行的註解，並將 let seconds = 0 改成 let seconds = 1;
+        // timerElement.textContent = seconds + " 秒";
+    </script>
+</body>
+</html>
